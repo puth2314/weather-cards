@@ -1,2 +1,1 @@
-# weather-website
-A simple weather website.
+# [Weather Website](https://puth2314.github.io/weather-website)
