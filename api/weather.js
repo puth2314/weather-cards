@@ -2,7 +2,7 @@ const axios = require('axios');
 
 module.exports = async (req, res) => {
   const { city } = req.query;  // The city is sent as a query parameter
-  const apiKey = process.env.OPENWEATHERAPP_APIKEY; 
+  const apiKey = process.env.OPENWEATHERMAP_APIKEY; 
 
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
