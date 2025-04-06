@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     res.status(200).json(response.data);
   } catch (error) {
     if (error.response && error.response.status === 404) {
-      return res.status(404).json({ error: 'City not found. Please check the city name and try again.' });
+      return res.status(404).json(error.response.data);
     }
     res.status(500).json({ error: 'Error fetching weather data!' });
   }
