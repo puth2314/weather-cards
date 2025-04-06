@@ -1,10 +1,9 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-  const { city } = req.query;  // The city is sent as a query parameter
+  const { city } = req.query;
   const apiKey = process.env.OPENWEATHERMAP_APIKEY; 
-
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?` + `q=${city}` + `&appid=${apiKey}` + `&units=metric`;
 
 //   res.setHeader('Access-Control-Allow-Origin', 'https://puth2314.github.io');  
   res.setHeader('Access-Control-Allow-Origin', '*');  
@@ -15,6 +14,9 @@ module.exports = async (req, res) => {
     const response = await axios.get(apiUrl);
     res.status(200).json(response.data);
   } catch (error) {
-    res.status(500).json({ error: 'Error fetching weather data' });
+    if (error.response && error.response.status === 404) {
+      return res.status(404).json({ error: 'City not found. Please check the city name and try again.' });
+    }
+    res.status(500).json({ error: 'Error fetching weather data!' });
   }
 };
