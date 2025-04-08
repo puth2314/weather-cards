@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+main {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.shaking-anim {
+    animation: shakingEffect 0.3s linear 1;
+}
+
+@keyframes shakingEffect {
+    0%   {transform: translate(10px, 5px);}
+    25%  {transform: translate(-5px, 0px);}
+    50%  {transform: translate( 8px, 2px);}
+    75%  {transform: translate(-2px, 5px);}
+    100% {transform: translate( 0px, 0px);}
+}

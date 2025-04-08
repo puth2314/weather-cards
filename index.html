@@ -1,26 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Website</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Website</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
-    <div id="weather-container">
 
-        <form id="weather-form">
-            <input type="text" id="city" placeholder="Enter city" required>
-            <button type="submit">Get Weather</button>
+    <main>
+
+        <form>
+            <input type="text" placeholder="Enter location" autocomplete="off" required>
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
         </form>
 
-        <div id="weather-info">
-        <!-- Weather information will be displayed here. -->
+        <div id="results-container" class="hidden">
+
+            <div id="location-container">
+                <i class="fa-solid fa-location-dot"></i>
+                <span></span>
+                <img src="">
+            </div>
+
+            <div id="weather-container">
+                <figure>
+      
+                  <figcaption></figcaption> 
+                    <img src="">
+                </figure>
+                <p></p>
+            </div>
+
+            <div id="details-container">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-cloud"></i>
+                        <span id="clouds"></span>
+                        Clouds
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-wind"></i>
+                        <span id="wind-speed"></span>
+                        Wind Speed
+                    </li>
+                </ul>
+            </div>
+
+            <div id="forecast-container">
+            </div>
+
         </div>
 
-    </div>
+        <div id="error-container" class="hidden">
+            <figure>
+                <img src="images/error.png">
+                <figcaption></figcaption> 
+            </figure>
+        </div>
 
-  <script src="main.js"></script>
+    </main>
+
+    <script src="scripts/main.js"></script>
 </body>
 </html>
