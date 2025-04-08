@@ -53,8 +53,9 @@ function getWeather(location, weatherType) {
 
             let errorMessage, errorAlert;
             if (err.code === '404') {
-                errorAlert   = `location not found.`;
-                errorMessage = `Are you sure "${locationInput.value}" is a valid location?`;
+                errorAlert   = `location not found.`;                
+                errorMessage = `Location "${locationInput.value}" not found`;
+                // errorMessage = `Are you sure "${locationInput.value}" is a valid location?`;
             } else {
                 errorAlert   = `unexpected error while fetching ${weatherType} data.`;
                 errorMessage = `${err.code}: ${err.message}`;
