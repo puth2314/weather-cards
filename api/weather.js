@@ -11,13 +11,13 @@ module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); 
 
     try {
-      const response = await axios.get(apiUrl);
-      res.status(200).json(response.data);
+        const response = await axios.get(apiUrl);
+        res.status(200).json(response.data);
     } catch (error) {
         if (error.response && error.response.status === 404) {
-          res.status(404).json(error.response.data);
+            res.status(404).json(error.response.data);
         } else {
-          res.status(500).json({ error: `Unexpected error occurred while fetching data.` });
+            res.status(500).json({ error: `Unexpected error occurred while fetching data.` });
         }
     }
 };

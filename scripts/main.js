@@ -13,14 +13,16 @@ locationForm.addEventListener('submit', function (submitEvent) {
     getWeather(locationInput.value, 'weather');
 });
 
+// const apiKey = '';
+// const weatherApiUrl = `https://api.openweathermap.org/data/2.5/`;
 const weatherApiUrl = 'https://weather-website-ten-zeta.vercel.app/api/weather'
 
 function getWeather(location, weatherType) {
+    // const weatherApiQuery = `${weatherType}?q=${location}&units=metric&appid=${apiKey}`;
     const weatherApiQuery = `?location=${location}&weather-type=${weatherType}`;
     fetch(weatherApiUrl + weatherApiQuery)
         .then(response => response.json())
         .then(data => {
-
             console.log(data);
 
             const errorCode = data.cod.toString();
@@ -41,7 +43,7 @@ function getWeather(location, weatherType) {
 
             showContainer(  errorContainer, false);
             showContainer(resultsContainer,  true);
-            // mainContainer.style.height = ;
+            // mainContainer.style.height = `400px`;
 
         })
         .catch(err => {
@@ -49,23 +51,23 @@ function getWeather(location, weatherType) {
             mainContainer.classList.add('shaking-anim');
             setTimeout(() => {
                 mainContainer.classList.remove('shaking-anim');
-            }, 1000);
+            }, 300);
 
             let errorMessage, errorAlert;
             if (err.code === '404') {
                 errorAlert   = `Oops,location not found.`;                
-                errorMessage = `Oops, location "${locationInput.value}" not found.`;
+                errorMessage = `Oops, location "<i>${locationInput.value}</i>" was not found.`;
                 // errorMessage = `Are you sure "${locationInput.value}" is a valid location?`;
             } else {
                 errorAlert   = `Oops, unexpected error while fetching ${weatherType} data.`;
                 errorMessage = `${err.code}: ${err.message}`;
             }
-            errorContainer.querySelector('figcaption').innerText = errorMessage;
+            errorContainer.querySelector('figcaption').innerHTML = errorMessage;
             // alert(errorAlert);
 
             showContainer(resultsContainer, false);
             showContainer(  errorContainer,  true);
-            // mainContainer.style.height = ;
+            // mainContainer.style.height = `500px`;
 
         })
         .finally(() => {  
@@ -83,7 +85,7 @@ function displayWeather(weatherData) {
     const detailsWindSpeed    = parseInt(weatherData.wind.speed);
 
     locationContainer.querySelector('span').innerText       = locationName;
-    locationContainer.querySelector('img').src              = `https://flagsapi.com/${locationCountryCode}/flat/32.png`; 
+    locationContainer.querySelector('img').src              = `https://flagsapi.com/${locationCountryCode}/shiny/48.png`; 
     weatherContainer.querySelector('p').innerText           = `${weatherTemperature}°C`;
     weatherContainer.querySelector('img').src               = `https://openweathermap.org/img/wn/${weatherIconCode}@4x.png`;
     weatherContainer.querySelector('figcaption').innerText  = capitalizeWords(weatherDescription);
@@ -130,11 +132,16 @@ function capitalizeWords(str) {
 
 function showContainer(container, boolToShow) {
     if (boolToShow) {
-        container.classList.remove('hidden');
-        container.classList.add('fade-anim');
+        requestAnimationFrame(() => {
+            container.classList.remove('hidden');
+            container.classList.add('fade-anim');
+            setTimeout(() => {
+                container.classList.remove('fade-anim');
+            }, 1000);
+        });
     } else {
         container.classList.add('hidden');
-        container.classList.remove('fade-anim');
+        // container.classList.remove('fade-anim');
     }
 }
 

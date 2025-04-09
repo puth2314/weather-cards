@@ -7,19 +7,219 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
+    outline: none;
 }
 
 body {
     min-height: 100vh;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    background-image: 
+    linear-gradient(
+        to bottom,
+        #dcdcdc 50%,
+        #e9e9e9 50%
+    );
 }
 
 main {
+    border-radius: 2rem;
+    width: 25rem;
+    padding: 2rem;
+    /* min-height: 25rem; */
+    /* height: max-content; */
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f7f7f7;
+    box-shadow: 2rem 2rem 2rem #5553;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* transition: height 2s ease-out; */
+}
+
+main form {
+    display: flex;
+    width: 100%;
+    border-radius: 2rem;
+    border: 1px solid;
+}
+
+main form input {
+    font-size: 2;
+    flex: 1;
+    padding: 0rem 0.25rem 0rem 1rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border-radius: 2rem;
+}
+
+main form button {
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+main form button:hover {
+    color: #fff;
+    background: #000000;
+}
+
+main form i {
+    opacity: 0.7;
+}
+
+#results-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#location-container {
     text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#location-container i {
+    width: 3rem;
+    font-size: 2rem;
+}
+
+#weather-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+#weather-container figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#weather-container img {
+    margin: -2rem 0rem -1rem;
+    filter: drop-shadow(1rem 1rem 1rem #555)
+}
+
+#weather-container p {
+    font-size: 2rem;
+}
+
+#details-container {
+    width: 100%;
+}
+
+#details-container ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+#details-container ul li {
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.75rem;
+    background-image: linear-gradient(to bottom, transparent 50%,#0003 50%);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#details-container ul li:nth-child(1) {
+    background-color: #f78a55;
+}
+
+#details-container ul li:nth-child(2) {
+    background-color: #b56291;
+}
+
+#details-container ul li i {
+    font-size: 1.75rem;
+}
+
+#details-container ul li span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+#forecast-container {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.forecast-item {
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 4rem;
+    flex: 1 0 auto;
+}
+
+.forecast-item figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forecast-item img {
+    filter: drop-shadow(0.5rem 0.5rem 0.5rem #555);
+    margin-top: -0.25rem;
+}
+
+#error-container {
+    width: 100%;
+}
+
+#error-container figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#error-container img {
+    width: 100%;
+    padding: 1rem;
+    filter: drop-shadow(1rem 1rem 1rem #555);
+}
+
+#error-container figcaption {
+    width: 100%;
+    font-size: 1rem;
+    hyphens: auto;
+    word-wrap: break-word;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .shaking-anim {
@@ -32,4 +232,13 @@ main {
     50%  {transform: translate( 8px, 2px);}
     75%  {transform: translate(-2px, 5px);}
     100% {transform: translate( 0px, 0px);}
+}
+
+.fade-anim{
+    animation: 1s fadeEffect forwards;
+}
+
+@keyframes fadeEffect{
+    from {opacity: 0.0; transform: scale(0.9);}
+    to {opacity: 1.0; transform: scale(1.0);}
 }
