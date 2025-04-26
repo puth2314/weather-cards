@@ -1,6 +1,6 @@
 # Weather Cards
 
-A simple weather web apppp.
+A simple weather web appp.
 
 
 [Click me to visit my weather app.](https://puth2314.github.io/weather-website/)
