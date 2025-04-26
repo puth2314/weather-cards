@@ -1,7 +1,7 @@
+<div align="center">
 # Weather Cards
-
-A simple weather web apppp.
-
+A simple weather web app.
+</div>
 
 [Click me to visit my weather app.](https://puth2314.github.io/weather-website/)
 
@@ -33,8 +33,8 @@ This is a simple weather website built with html, css, and javascript using the 
 - [ ] Make it embeddable.
 - [ ] Be able to read user location.
 - [ ] Make the transitions/animations cleaner, some elements are changing during animation.
-- [x] Fix the weird overlapping animations.
-- [x] ~~Bootstrap or another UI framework.~~ Not necessary for this project scale.
+- [x] Fix overlapping animations.
+- [x] ~~Bootstrap or another UI framework.~~ (Not needed for this scale)
 - [x] Weather forecasts.
 - [x] Icons for weather.
 - [x] Better error for wrong city names.
