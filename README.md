@@ -1,6 +1,6 @@
 <h1 align="center">Weather Cards</h1>
 
-<p align="center">This is a weather web app built with raw HTML/CSS/JavaScript, fetches weather data using the OpenWeather API, and focuses on a minimalist design.</p>
+<p align="center">A minimal weather web app built with raw HTML/CSS/JavaScript.</p>
 
 
 ## Live Demo
